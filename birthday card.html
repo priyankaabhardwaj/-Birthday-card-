@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Birthday Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe4e1;
+            margin: 0;
+            overflow: hidden;
+        }
+        .card {
+            background-color: #f8bbd0;
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        .balloons img {
+            width: 50px;
+            margin: 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff4081;
+            animation: fall 5s infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+        .music-button {
+            background: #ff4081;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Happy Birthday!</h1>
+        <p>Wishing you a day filled with love, joy, and laughter. Have a fantastic year ahead!</p>
+        <div class="balloons">
+            <img src="https://cliparts.co/cliparts/kTK/ogA/kTKogAAzc.png" alt="Balloon">
+            <img src="https://cliparts.co/cliparts/kTK/ogA/kTKogAAzc.png" alt="Balloon">
+            <img src="https://cliparts.co/cliparts/kTK/ogA/kTKogAAzc.png" alt="Balloon">
+        </div>
+        <button class="music-button" onclick="playMusic()">Play Music 🎵</button>
+    </div><script>
+    // Confetti effect
+    for (let i = 0; i < 100; i++) {
+        let confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        document.body.appendChild(confetti);
+    }
+
+    // Music play function
+    function playMusic() {
+        const audio = new Audio('https://www.bensound.com/bensound-music/bensound-sunny.mp3');
+        audio.play();
+    }
+</script>
+
+</body>
+</html>
